@@ -1,0 +1,152 @@
+set nocompatible
+filetype off
+
+" Install vim-plug if it doesn't exist
+if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" Start loading plugins
+call plug#begin('~/.vim/plugged')
+
+" Common
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'Raimondi/delimitMate'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+Plug 'terryma/vim-multiple-cursors'
+
+" Syntax checker and autocomplete
+Plug 'w0rp/ale'
+Plug 'Valloric/YouCompleteMe'
+
+" Snippets
+Plug 'SirVer/ultisnips' " Engine
+Plug 'honza/vim-snippets' " Snippets
+
+" Web
+Plug 'mattn/emmet-vim'
+Plug 'ap/vim-css-color'
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'othree/yajs.vim'
+
+" Git
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+
+" Themes
+Plug 'morhetz/gruvbox'
+Plug 'joshdick/onedark.vim'
+
+" End of loading plugins
+call plug#end()
+
+ " Setting
+filetype plugin indent on
+
+if has('gui_macvim')
+    set guifont=Consolas:h13
+else
+    set guifont=FiraMono\ 11
+endif
+
+" Enable true color
+if exists('+termguicolors')
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+    set termguicolors
+endif
+
+syntax enable
+colorscheme gruvbox
+set background=dark
+set signcolumn=yes
+set splitright
+set splitbelow
+set number
+set hidden
+set ruler
+set ignorecase
+set smartcase
+set smartindent
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
+set expandtab
+set nostartofline
+set laststatus=2
+set guioptions-=m  "remove menu bar
+set guioptions-=T  "remove toolbar
+set guioptions-=r  "remove right-hand scroll bar
+set guioptions-=L  "remove left-hand scroll bar
+set encoding=utf-8
+
+" Leader key - Space
+let g:mapleader = "\<Space>"
+
+" FZF - Fuzzy finder
+let g:fzf_colors =
+\ { 'fg':    ['fg', 'Normal'],
+\ 'bg':      ['bg', 'Normal'],
+\ 'hl':      ['fg', 'Comment'],
+\ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+\ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+\ 'hl+':     ['fg', 'Statement'],
+\ 'info':    ['fg', 'PreProc'],
+\ 'border':  ['fg', 'Ignore'],
+\ 'prompt':  ['fg', 'Conditional'],
+\ 'pointer': ['fg', 'Exception'],
+\ 'marker':  ['fg', 'Keyword'],
+\ 'spinner': ['fg', 'Label'],
+\ 'header':  ['fg', 'Comment'] }
+let g:fzf_layout = { 'down': '~30%' }
+if executable("rg")
+    let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --glob "!.git/*"'
+endif
+nnoremap <silent> <leader><space> :Files<CR>
+nnoremap <silent> <leader>p :GitFiles<CR>
+nnoremap <silent> <leader>a :Buffers<CR>
+nnoremap <silent> <leader>? :History<CR>
+
+" Ale - Syntax checker
+let g:ale_completion_enabled=0
+let g:ale_sign_error='X'
+let g:ale_sign_warning='!'
+
+" YCM
+let g:ycm_key_list_select_completion=['<Down>']
+let g:ycm_key_list_previous_completion=['<Up>']
+let g:ycm_show_diagnostics_ui=0
+let g:ycm_autoclose_preview_window_after_completion=1
+
+" Snippets
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<c-b>"
+let g:UltiSnipsEditSplit="vertical"
+
+" Emmmet
+let g:user_emmet_leader_key=','
+
+" NERDTree
+let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__', '.egg-info']
+let g:NERDTreeWinPos="left"
+nnoremap <silent> <leader>t :NERDTreeToggle<CR>
+
+" Navigating
+nmap <silent> <A-Up> :wincmd k<CR>
+nmap <silent> <A-Down> :wincmd j<CR>
+nmap <silent> <A-Left> :wincmd h<CR>
+nmap <silent> <A-Right> :wincmd l<CR>
+nnoremap <silent> <leader>k :wincmd k<CR>
+nnoremap <silent> <leader>j :wincmd j<CR>
+nnoremap <silent> <leader>h :wincmd h<CR>
+nnoremap <silent> <leader>l :wincmd l<CR>
+nnoremap <silent> <leader>r :wincmd r<CR>
+nnoremap <silent> <leader>= :wincmd =<CR>
+let macvim_skip_cmd_opt_movement=1

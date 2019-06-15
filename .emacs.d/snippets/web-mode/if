@@ -1,0 +1,7 @@
+# -*- mode: web-mode -*-
+# name: If
+# key: if
+# --
+{% if $1 %}
+    $0
+{% endif %}

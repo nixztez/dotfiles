@@ -1,0 +1,14 @@
+tags
+.swp
+.vim/autoload
+.vim/plugged
+.vim/.netrwhist
+.emacs.d/elpa
+.emacs.d/auto-save-list
+.emacs.d/projectile-bookmarks.eld
+.emacs.d/ido.last
+.emacs.d/configuration.el
+.emacs.d/irony
+.emacs.d/ycmd
+.emacs.d/request
+.zcompdump
