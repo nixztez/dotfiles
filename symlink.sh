@@ -19,6 +19,9 @@ then
     rm -rf ~/.config/zsh
     ln -sf "$SCRIPTPATH/.config/zsh" ~/.config
 
+    echo 'Symlinking ~/.tmux.conf'
+    ln -sf "$SCRIPTPATH/.tmux.conf" ~/.tmux.conf
+
     echo 'Symlinking ~/.vim'
     rm -rf ~/.vim
     ln -sf "$SCRIPTPATH/.vim" ~
