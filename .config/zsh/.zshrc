@@ -31,7 +31,7 @@ fi
 export VISUAL=vim
 export EDITOR="$VISUAL"
 export LANG=en_US.UTF-8
-export LC_CTYPE='sv_SE.UTF-8'
+export LC_CTYPE=sv_SE.UTF-8
 
 # Load external configuration
 for f in $HOME/.config/zsh/*?.zsh; do
