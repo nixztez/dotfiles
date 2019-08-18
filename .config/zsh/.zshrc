@@ -43,6 +43,12 @@ zle -N rationalise-dot
 bindkey . rationalise-dot
 bindkey -M isearch . self-insert
 
+# Automatically install zplugin
+if [ ! -d "$HOME/.zplugin/bin" ]; then
+    mkdir -p ~/.zplugin
+    git clone https://github.com/zdharma/zplugin.git ~/.zplugin/bin
+fi
+
 # Load zplugin - Plugin manager
 source "$HOME/.zplugin/bin/zplugin.zsh"
 
