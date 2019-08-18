@@ -47,8 +47,10 @@ bindkey -M isearch . self-insert
 source "$HOME/.zplugin/bin/zplugin.zsh"
 
 ## Load plugins
-zplugin load zdharma/history-search-multi-word
+zplugin ice pick"async.zsh" src"pure.zsh"
+zplugin light sindresorhus/pure
 
+zplugin load zdharma/history-search-multi-word
 zplugin light zsh-users/zsh-completions
 zplugin light zsh-users/zsh-autosuggestions
 zplugin light zsh-users/zsh-syntax-highlighting
@@ -58,4 +60,3 @@ zplugin light djui/alias-tips
 zplugin snippet OMZ::lib/git.zsh
 zplugin snippet OMZ::plugins/git/git.plugin.zsh
 zplugin snippet OMZ::plugins/gitignore/gitignore.plugin.zsh
-zplugin snippet OMZ::themes/minimal.zsh-theme
