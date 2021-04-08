@@ -23,7 +23,6 @@ Plug 'terryma/vim-multiple-cursors'
 
 " Syntax checker and autocomplete
 Plug 'w0rp/ale'
-Plug 'Valloric/YouCompleteMe'
 
 " Snippets
 Plug 'SirVer/ultisnips' " Engine
@@ -41,7 +40,6 @@ Plug 'airblade/vim-gitgutter'
 
 " Themes
 Plug 'morhetz/gruvbox'
-Plug 'joshdick/onedark.vim'
 
 " End of loading plugins
 call plug#end()
@@ -117,12 +115,6 @@ nnoremap <silent> <leader>? :History<CR>
 let g:ale_completion_enabled=0
 let g:ale_sign_error='X'
 let g:ale_sign_warning='!'
-
-" YCM
-let g:ycm_key_list_select_completion=['<Down>']
-let g:ycm_key_list_previous_completion=['<Up>']
-let g:ycm_show_diagnostics_ui=0
-let g:ycm_autoclose_preview_window_after_completion=1
 
 " Snippets
 let g:UltiSnipsExpandTrigger="<tab>"

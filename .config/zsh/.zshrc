@@ -19,7 +19,6 @@ set -o emacs
 
 # Aliases
 alias c='clear'
-alias vim='nvim'
 alias zshrefresh='source ~/.config/zsh/.zshrc'
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
     alias ls='ls --color=auto'
