@@ -9,6 +9,13 @@
 # ░░ ░░░░░░ ░░░░░░  ░░   ░░ ░░░     ░░░░░
 #
 
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.config/zsh/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # General
 HISTFILE=~/.zsh_history
 HISTSIZE=3000
@@ -33,7 +40,7 @@ export LANG=en_US.UTF-8
 export LC_CTYPE=sv_SE.UTF-8
 
 # Load external configuration
-for f in $HOME/.config/zsh/*?.zsh; do
+for f in $HOME/.config/zsh/config/*?.zsh; do
     . "$f"
 done
 
@@ -42,26 +49,23 @@ zle -N rationalise-dot
 bindkey . rationalise-dot
 bindkey -M isearch . self-insert
 
-# Automatically install zplugin
-if [ ! -d "$HOME/.zplugin/bin" ]; then
-    mkdir -p ~/.zplugin
-    git clone https://github.com/zdharma/zplugin.git ~/.zplugin/bin
-fi
-
-# Load zplugin - Plugin manager
-source "$HOME/.zplugin/bin/zplugin.zsh"
+# Load plugin manager
+source $HOME/.config/zsh/pz/pz.zsh
 
 ## Load plugins
-zplugin ice pick"async.zsh" src"pure.zsh"
-zplugin light sindresorhus/pure
+pz prompt romkatv/powerlevel10k
+pz prompt -a sindresorhus/pure
 
-zplugin load zdharma/history-search-multi-word
-zplugin light zsh-users/zsh-completions
-zplugin light zsh-users/zsh-autosuggestions
-zplugin light zsh-users/zsh-syntax-highlighting
-zplugin light djui/alias-tips
+# pz source zdharma/history-search-multi-word
+pz source zsh-users/zsh-completions
+pz source zsh-users/zsh-autosuggestions
+pz source zsh-users/zsh-syntax-highlighting
+pz source djui/alias-tips
 
 ## Load Oh-My-Zsh plugins
-zplugin snippet OMZ::lib/git.zsh
-zplugin snippet OMZ::plugins/git/git.plugin.zsh
-zplugin snippet OMZ::plugins/gitignore/gitignore.plugin.zsh
+pz source ohmyzsh/ohmyzsh lib/git.zsh
+pz source ohmyzsh/ohmyzsh plugins/git/git.plugin.zsh
+pz source ohmyzsh/ohmyzsh plugins/gitignore/gitignore.plugin.zsh
+
+# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
+[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh

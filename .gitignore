@@ -1,7 +1,8 @@
+.config/zsh/plugins
+.config/zsh/pz/.cache
 .config/zsh/secrets.zsh
 .vim/autoload
 .vim/plugged
 .vim/.netrwhist
 .zcompdump
 .swp
-
