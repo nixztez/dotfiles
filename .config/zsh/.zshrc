@@ -54,7 +54,7 @@ source $HOME/.config/zsh/pz/pz.zsh
 
 ## Load plugins
 pz prompt romkatv/powerlevel10k
-pz prompt -a sindresorhus/pure
+# pz prompt -a sindresorhus/pure
 
 # pz source zdharma/history-search-multi-word
 pz source zsh-users/zsh-completions
@@ -63,7 +63,7 @@ pz source zsh-users/zsh-syntax-highlighting
 pz source djui/alias-tips
 
 ## Load Oh-My-Zsh plugins
-pz source ohmyzsh/ohmyzsh lib/git.zsh
+# pz source ohmyzsh/ohmyzsh lib/git.zsh
 pz source ohmyzsh/ohmyzsh plugins/git/git.plugin.zsh
 pz source ohmyzsh/ohmyzsh plugins/gitignore/gitignore.plugin.zsh
 
