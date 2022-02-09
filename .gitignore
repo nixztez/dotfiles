@@ -1,6 +1,6 @@
 .config/zsh/plugins
 .config/zsh/pz/.cache
-.config/zsh/secrets.zsh
+.config/zsh/config/secrets.zsh
 .vim/autoload
 .vim/plugged
 .vim/.netrwhist
