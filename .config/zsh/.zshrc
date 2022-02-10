@@ -54,7 +54,7 @@ source $HOME/.config/zsh/pz/pz.zsh
 
 ## Load plugins
 pz prompt romkatv/powerlevel10k
-# pz prompt -a sindresorhus/pure
+pz prompt -a sindresorhus/pure
 
 # pz source zdharma/history-search-multi-word
 pz source zsh-users/zsh-completions
